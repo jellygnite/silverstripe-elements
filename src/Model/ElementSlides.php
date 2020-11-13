@@ -4,6 +4,7 @@ namespace Jellygnite\Elements\Model;
 
 use DNADesign\Elemental\Models\BaseElement;
 use Jellygnite\Elements\Model\SlideObject;
+use Jellygnite\Elements\Controllers\CustomElementController;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\LiteralField;
 use SilverStripe\Forms\TextField;
@@ -51,7 +52,12 @@ class ElementSlides extends BaseElement
     /**
      * @var array
      */
-    private static $styles = [];
+	
+	private static $styles = [];
+	
+	private static $controller_class = CustomElementController::class;  // allows us to store templates in this module folder
+	
+    private static $controller_template = "ElementHolder";
 
     /**
      * @var array

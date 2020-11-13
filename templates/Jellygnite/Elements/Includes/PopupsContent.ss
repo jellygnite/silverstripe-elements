@@ -1,7 +1,7 @@
 <% loop $PopupList %>
 <div id="popup_{$ID}" class="popup-content uk-modal">
 	<div class="uk-modal-dialog">
-		<div class="uk-grid" data-uk-grid-margin data-uk-grid-match>
+		<div class="uk-grid" data-uk-grid data-uk-grid-margin data-uk-grid-match>
 			<div class="uk-width-1-1 uk-width-small-1-3 uk-width-medium-2-5 uk-width-large-1-2">
 				<div class="popup-image-holder">$ImagePopup.FillMax(550,650)</div>
 			</div>

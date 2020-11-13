@@ -27,4 +27,5 @@ class BaseElementExtension extends DataExtension
 		$haystack = $this->owner->getStyleVariant();
 		return ((((strpos($haystack, $cssclass )) ) !== false));
 	}
+	
 }

@@ -41,7 +41,7 @@ Page:
 
 ### Background Extension
 
-Adds background image to an element. 
+Adds background image or video to an element. 
 
 Add this to your mysite.yml, e.g.
  

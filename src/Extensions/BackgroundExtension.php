@@ -2,6 +2,7 @@
 
 namespace Jellygnite\Elements\Extensions;
 
+use Jellygnite\Elements\Controllers\CustomElementController;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Assets\File;
 use SilverStripe\Assets\Image;
@@ -48,11 +49,16 @@ class BackgroundExtension extends DataExtension
         'BackgroundVideo'
     ];
 
+
+    private static $controller_class = CustomElementController::class;  // allows us to store templates in this module folder
+
+	private static $controller_template = 'ElementHolder';
+
     public function updateCMSFields(FieldList $fields) 
 	{
 		$fldBackgroundImage = $fields->dataFieldByName('BackgroundImage')
 			->setFolderName('images/background')
-			->setDescription(null);
+			->setDescription('This will also be used as the poster image if using a video background.');
 		
 		$fldBackgroundVideo = $fields->dataFieldByName('BackgroundVideo');
 		$fldBackgroundVideo->setFolderName('video')
@@ -72,16 +78,12 @@ class BackgroundExtension extends DataExtension
 
     public function updateStyleVariant(&$style)
 	{
-		if($this->hasBackground()) {
+		if($this->owner->BackgroundImageID || $this->owner->BackgroundVideoID) {
 			$style .= ' has-bg';
-		}
-					
-    }
-	
-    public function hasBackground()
-	{
-		return (bool) ($this->owner->BackgroundImageID || $this->owner->BackgroundVideoID) ;
-					
+			if($this->owner->BackgroundImage->IsDark()){
+				$style .= ' invert';
+			}
+		}					
     }
 	
 }

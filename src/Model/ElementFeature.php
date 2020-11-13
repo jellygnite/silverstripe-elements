@@ -1,6 +1,7 @@
 <?php
 
 namespace Jellygnite\Elements\Model;
+
 use DNADesign\Elemental\Models\BaseElement;
 use Jellygnite\Elements\Controllers\CustomElementController;
 use Sheadawson\Linkable\Forms\LinkField;
@@ -40,7 +41,7 @@ class ElementFeature extends BaseElement
 	
     private static $controller_class = CustomElementController::class;  // allows us to store templates in this module folder
 	
-    private static $controller_template = "ElementHolder_Feature";
+    private static $controller_template = "ElementHolder";
 
     private static $singular_name = 'Feature Block';
 

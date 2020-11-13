@@ -46,7 +46,7 @@ class ElementPromos extends BaseElement
 	
     private static $controller_class = CustomElementController::class;  // allows us to store templates in this module folder
 	
-    private static $controller_template = 'ElementHolder_Promos';
+    private static $controller_template = 'ElementHolder';
 
     /**
      * @var array
