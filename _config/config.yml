@@ -1,0 +1,13 @@
+---
+Name: jellygnite-elements
+---
+DNADesign\Elemental\Extensions\ElementalAreasExtension:
+  keep_content_fields: true
+  stop_element_inheritance: false
+DNADesign\Elemental\Models\BaseElement:
+  extensions:
+    - Jellygnite\Elements\Extensions\BaseElementExtension
+Jellygnite\Elements\Model\BaseElementObject:
+  extensions:
+    - Jellygnite\ElementalStyle\Extensions\DynamicStyleExtension
+
