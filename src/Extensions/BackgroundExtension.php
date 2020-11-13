@@ -40,12 +40,12 @@ class BackgroundExtension extends DataExtension
 
     private static $has_one = [
         'BackgroundImage' => Image::class,
-        'HTML5Video' => File::class,
+        'BackgroundVideo' => File::class,
     ];	
 	
 	private static $owns = [
         'BackgroundImage',
-        'HTML5Video'
+        'BackgroundVideo'
     ];
 
     public function updateCMSFields(FieldList $fields) 
@@ -54,19 +54,19 @@ class BackgroundExtension extends DataExtension
 			->setFolderName('images/background')
 			->setDescription(null);
 		
-		$fldHTML5Video = $fields->dataFieldByName('HTML5Video');
-		$fldHTML5Video->setFolderName('video')
+		$fldBackgroundVideo = $fields->dataFieldByName('BackgroundVideo');
+		$fldBackgroundVideo->setFolderName('video')
 			->setAllowedFileCategories('video')
 			->setDescription('This will override the background image.');
 		
 		$fields->removeByName([
-			'BackgroundImage','HTML5Video'
+			'BackgroundImage','BackgroundVideo'
 		]);
 
 
 		$fields->addFieldsToTab('Root.Background', [
 			$fldBackgroundImage,
-			$fldHTML5Video
+			$fldBackgroundVideo
 		]);
     }
 
@@ -80,7 +80,7 @@ class BackgroundExtension extends DataExtension
 	
     public function hasBackground()
 	{
-		return (bool) ($this->owner->BackgroundImageID || $this->owner->HTML5VideoID) ;
+		return (bool) ($this->owner->BackgroundImageID || $this->owner->BackgroundVideoID) ;
 					
     }
 	
