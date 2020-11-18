@@ -8,13 +8,13 @@
 		<div data-uk-slider="{center: false,infinite: true,autoplay:true,autoplayInterval:2000,pauseOnHover:true}">
 			<div class="uk-slider-container">
 				<div class="uk-slider uk-slider-slow uk-grid uk-grid-xlarge uk-flex-middle uk-grid-width-1-2 uk-grid-width-small-1-3 uk-grid-width-medium-1-6 mt-5" data-uk-grid-margin>
-					<% include SponsorsGrid %>
+					<% include Jellygnite/Elements/SponsorsGrid %>
 				</div>
 			</div>
 		</div>
 		<% else %>
 			<div class="uk-grid uk-grid-xlarge uk-flex-middle uk-grid-width-1-2 uk-grid-width-small-1-3 uk-grid-width-medium-1-4 mt-5" data-uk-grid-margin>
-				<% include SponsorsGrid %>
+				<% include Jellygnite/Elements/SponsorsGrid %>
 			</div>
 		<% end_if %>
 		
