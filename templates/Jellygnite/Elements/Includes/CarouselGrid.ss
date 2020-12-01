@@ -7,8 +7,8 @@
 			<% if $Image %><img src="$Image.URL" class="img-fluid mb-2" alt="<% if $Image.Title %>$Image.Title.ATT<% else %>$Title.ATT<% end_if %>"><% end_if %>
 		<% end_if %>
 		<div class="content">
-			<% if $Title && $ShowTitle %><h2 class="element__title uk-text-center">$Title</h2><% end_if %>
-			<% if $Content %><div class="element__content uk-text-center">$Content</div><% end_if %>
+			<% if $Title && $ShowTitle %><h2 class="element__title">$Title</h2><% end_if %>
+			<% if $Content %><div class="element__content">$Content</div><% end_if %>
 		</div>
 	</div>
 <% end_loop %>
