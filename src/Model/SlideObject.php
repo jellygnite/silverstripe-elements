@@ -16,9 +16,9 @@ use SilverStripe\Forms\GridField\GridFieldConfig_RecordViewer;
 class SlideObject extends BaseElementObject
 {
 	private static $db = array(
-		'PanelPosition' => 'Enum("None,Top Left,Top Center,Top Right,Middle Left,Middle Center,Middle Right,Bottom Left,Bottom Center,Bottom Right","None")',
+		'PanelPosition' => 'Enum("None,Cover,Top Left,Top Center,Top Right,Center Left,Center,Center Right,Bottom Left,Bottom Center,Bottom Right","None")',
 	);	
-	
+
     /**
      * @return string
      */
@@ -53,7 +53,9 @@ class SlideObject extends BaseElementObject
 	);
 	
         
-
+	public function PanelPositionCss(){
+		return str_replace(' ','-',strtolower($this->PanelPosition));
+	}
 
     /**
      * @return FieldList
