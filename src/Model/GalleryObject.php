@@ -29,13 +29,16 @@ class GalleryObject extends BaseElementObject
 
 
 	private static $valid_providers = ['youtube','vimeo'];
+	private static $default_aspect_ratio = 1.78; // 16:9
 		
 	private static $db = array(
 		'Type' => 'Enum("Image,HTML5Video,EmbedVideo","Image")',
 	    'VideoURL' => 'Varchar(255)',
 		'Code' => 'Varchar(100)',
         'Provider' => 'Varchar(50)',
-        'ImageURL' => 'Varchar(255)' 
+        'ImageURL' => 'Varchar(255)',
+		'Metadata' => 'Text', // saves a json object containing complete oembed metadata
+		
 	);	
 
     private static $has_one = [
@@ -92,12 +95,14 @@ class GalleryObject extends BaseElementObject
 	        
       		Requirements::javascript('jellygnite/silverstripe-elements:client/dist/javascript/jsVideoUrlParser.js');
       		Requirements::javascript('jellygnite/silverstripe-elements:client/dist/javascript/parsevideo.js');
+      		Requirements::css('jellygnite/silverstripe-elements:client/dist/css/custom.css');
 						
 			$fldType = $fields->dataFieldByName('Type');
 			$fldVideoURL = $fields->dataFieldByName('VideoURL')->setRightTitle('Enter a Youtube or Vimeo URL.');
 			$fldVideoCode = $fields->dataFieldByName('Code')->setAttribute("readonly",true);
 			$fldVideoProvider = $fields->dataFieldByName('Provider')->setAttribute("readonly",true);
 			$fldVideoImageURL = $fields->dataFieldByName('ImageURL')->setAttribute("readonly",true);
+			$fldVideoMetadata = $fields->dataFieldByName('Metadata')->setAttribute("readonly",true)->setRows(1)->addExtraClass('textfield');
 			$fldImage = $fields->dataFieldByName('Image')
 				->setFolderName('images/gallery')
 				->setDescription(null);
@@ -114,6 +119,7 @@ class GalleryObject extends BaseElementObject
 				'Code',
 				'Provider',
 				'ImageURL',
+				'Metadata',
 				'Image',
 				'HTML5Video',
 				'Content',
@@ -127,7 +133,8 @@ class GalleryObject extends BaseElementObject
 						$fldVideoCode, 
 						$fldVideoProvider,
 						$fldVideoImageURL
-					)->setTitle("Video Meta")->addExtraClass("fieldgroup-horizontal")
+					)->setTitle("Video Meta")->addExtraClass("fieldgroup-horizontal"),
+					$fldVideoMetadata
 				])
 					->displayIf('Type')->isEqualTo('EmbedVideo')
 					->end(),
@@ -207,6 +214,55 @@ class GalleryObject extends BaseElementObject
 				return false;
 		}
 	}
+	
+	public function getMetadataAsArray(){
+		if($this->Metadata){
+			$metadata = json_decode($this->Metadata, true);
+			switch ($this->Provider) {
+				case 'youtube':
+					return $metadata;
+					break;
+				case 'vimeo':
+					return $metadata[0];
+					break;
+			}
+		}
+		return null;
+	}
+
+	public function getVideoWidth() {
+		$metadata = $this->getMetadataAsArray();
+		if($metadata){
+			return $metadata['width'];
+		}
+		return null;
+	}
+	public function getVideoHeight() {
+		$metadata = $this->getMetadataAsArray();
+		if($metadata){
+			return $metadata['height'];
+		}
+		return null;
+	}	
+	
+	// need to pass this in a way that can be converted to css or style
+    public function getVideoAspectRatio() {
+		$default_aspect_ratio = $this->config()->get('default_aspect_ratio');
+			$width = (int) $this->getVideoWidth();
+			$height = (int) $this->getVideoHeight();
+		if($width && $height){
+			$aspect_ratio =  $width / $height;
+			return round($aspect_ratio, 2);
+		}
+		return $default_aspect_ratio;
+	}
+	
+	// get container padding
+	public function getVideoContainerPadding() {
+		$padding = 1 / $this->getVideoAspectRatio() * 100;
+		return round($padding,2);
+	}
+
     public function getMediaType($params = null) {
 		switch ($this->Type) {
 			case 'Image':

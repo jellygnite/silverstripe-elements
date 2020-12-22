@@ -1,4 +1,4 @@
-<div class="uk-grid uk-grid-xlarge uk-flex-top $StyleByLocation(grid) mt-5" data-uk-grid-margin  data-uk-height-match=".item-image-holder">
+<div class="uk-grid uk-grid-xlarge uk-flex-top $StyleByLocation(grid) mt-5" data-uk-grid data-uk-height-match=".item-image-holder">
     <% loop $PromoList %>
         <div class="item uk-text-center<% if $StyleVariant %> $StyleVariant<% end_if %>">
 			<% if $ElementLinkID %>

@@ -11,3 +11,4 @@ Jellygnite\Elements\Model\BaseElementObject:
   extensions:
     - Jellygnite\ElementalStyle\Extensions\DynamicStyleExtension
 
+

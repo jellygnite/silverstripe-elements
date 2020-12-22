@@ -555,7 +555,7 @@ function Vimeo() {
 
 Vimeo.prototype.parseUrl = function (url, result) {
   var match = url.match(/(vimeo(?:cdn|pro)?)\.com\/(?:(?:channels\/[\w]+|(?:(?:album\/\d+|groups\/[\w]+|staff\/frame)\/)?videos?)\/)?(\d+)(?:_(\d+)(?:x(\d+))?)?(\.\w+)?/i);
-	console.log(match);
+//	console.log(match);
   if (!match) {
     return result;
   }

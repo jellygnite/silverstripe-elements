@@ -3,16 +3,12 @@
 namespace Jellygnite\Elements\Model;
 
 use DNADesign\Elemental\Models\BaseElement;
-use Jellygnite\Elements\Model\GalleryObject;
+use SilverStripe\Assets\Image;
 use SilverStripe\Forms\FieldList;
-use SilverStripe\Forms\LiteralField;
-use SilverStripe\Forms\TextField;
-use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
 use SilverStripe\ORM\FieldType\DBField;
 use SilverStripe\ORM\FieldType\DBHTMLText;
-use SilverStripe\Versioned\GridFieldArchiveAction;
-use Symbiote\GridFieldExtensions\GridFieldAddExistingSearchButton;
-use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
+use Bummzack\SortableFile\Forms\SortableUploadField;
+
 use SilverStripe\Dev\Debug;
 
 /**
@@ -24,7 +20,7 @@ use SilverStripe\Dev\Debug;
  *
  * does not need ShowTitle
  */
-class ElementGallery extends BaseElement
+class ElementImageGallery extends BaseElement
 {
 	
 	
@@ -36,17 +32,17 @@ class ElementGallery extends BaseElement
     /**
      * @return string
      */
-    private static $singular_name = 'Gallery Element';
+    private static $singular_name = 'Image Gallery Element';
 
     /**
      * @return string
      */
-    private static $plural_name = 'Gallery Elements';
+    private static $plural_name = 'Image Gallery Elements';
 
     /**
      * @var string
      */
-    private static $table_name = 'ElementGallery';
+    private static $table_name = 'ElementImageGallery';
 
     /**
      * @var array
@@ -63,15 +59,15 @@ class ElementGallery extends BaseElement
     /**
      * @var array
      */
-    private static $many_many = array(
-        'MediaItems' => GalleryObject::class,
-    );
+	private static $many_many = [
+		'Images' => Image::class
+	];
 
     /**
      * @var array
      */
     private static $many_many_extraFields = array(
-        'MediaItems' => array(
+        'Images' => array(
             'SortOrder' => 'Int',
         ),
     );
@@ -80,7 +76,7 @@ class ElementGallery extends BaseElement
      * @var array
      */
     private static $owns = [
-        'MediaItems',
+        'Images',
     ];
 
     /**
@@ -101,7 +97,7 @@ class ElementGallery extends BaseElement
         $labels = parent::fieldLabels($includerelations);
 
 //        $labels['Content'] = _t(__CLASS__.'.ContentLabel', 'Intro');
-        $labels['Gallery'] = _t(__CLASS__ . '.GalleryLabel', 'Gallery');
+        $labels['Gallery'] = _t(__CLASS__ . '.ImageGalleryLabel', 'Image Gallery');
 
         return $labels;
     }
@@ -114,21 +110,18 @@ class ElementGallery extends BaseElement
         $this->beforeUpdateCMSFields(function (FieldList $fields) {
             
             if ($this->ID) {
-                $itemField = $fields->dataFieldByName('MediaItems');
-                $fields->removeByName('MediaItems');
-                $config = $itemField->getConfig();
-                $config->removeComponentsByType([
-                    GridFieldAddExistingAutocompleter::class,
-                    GridFieldDeleteAction::class,
-                    GridFieldArchiveAction::class,
-                ])->addComponents(
-                    new GridFieldOrderableRows('SortOrder'),
-                    new GridFieldAddExistingSearchButton()
-                );
-
-                $fields->addFieldsToTab('Root.Main', array(
-                    $itemField,
-                ));
+				$itemField = $fields->dataFieldByName('Images');
+                $fields->removeByName('Images');
+				$fields->dataFieldByName('Content')
+	                ->setRows(8);
+				
+				
+				$fields->addFieldToTab('Root.Main', 
+				
+					SortableUploadField::create(
+						'Images', $this->fieldLabel('Images')
+					)->setRightTitle('Supports bulk image uploads')
+				);
             }
         });
 		
@@ -138,9 +131,9 @@ class ElementGallery extends BaseElement
     /**
      * @return mixed
      */
-    public function getMediaItemsList()
+    public function getImagesList()
     {
-        return $this->MediaItems()->sort('SortOrder');
+        return $this->Images()->sort('SortOrder');
     }
 
     /**
@@ -148,12 +141,12 @@ class ElementGallery extends BaseElement
      */
     public function getSummary()
     {
-        if ($this->MediaItems()->count() == 1) {
+        if ($this->Images()->count() == 1) {
             $label = ' item';
         } else {
             $label = ' items';
         }
-        return DBField::create_field('HTMLText', $this->MediaItems()->count() . $label)->Summary(20);
+        return DBField::create_field('HTMLText', $this->Images()->count() . $label)->Summary(20);
     }
 
     /**
@@ -171,6 +164,6 @@ class ElementGallery extends BaseElement
      */
     public function getType()
     {
-        return _t(__CLASS__.'.BlockType', 'Media Gallery');
+        return _t(__CLASS__.'.BlockType', 'Image Gallery');
     }
 }

@@ -1,4 +1,4 @@
-<div class="uk-grid uk-flex-top $StyleByLocation(grid) mt-5" data-uk-grid data-uk-grid-margin>
+<div class="uk-grid uk-flex-top $StyleByLocation(grid) mt-5" data-uk-grid>
     <% loop $MediaItemsList %>
         <div class="item uk-text-center<% if $StyleVariant %> $StyleVariant<% end_if %>">
 			<% if $MediaType == 'image' %>
@@ -9,7 +9,7 @@
 				</div>
 			<% else_if $MediaType == 'video' %>
 				<div class="item-image-holder item-video-holder" data-mh="mh-image{$Up.ID}">
-					<div class="videowrap">
+					<div class="videowrap" style="padding-bottom:{$VideoContainerPadding}%;">
 						<div class="$Provider">
 							<iframe width="100%" height="100%" src="$EmbedURL" frameborder="0" allowfullscreen></iframe>
 						</div>
