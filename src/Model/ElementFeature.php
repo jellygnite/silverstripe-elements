@@ -37,7 +37,20 @@ class ElementFeature extends BaseElement
     private static $table_name = 'ElementFeature';
 	
 	private static $styles = [];
-	
+
+	private static $extra_styles = [
+		'ImageAlignment' => [
+			'Title' => 'Image Alignment',
+			'Description' => 'Set the position of the image for device widths 640px and higher.',
+			'Location' => 'image',
+			'After' => 'Image',
+			'Tab' => 'Main',
+			'Styles' => [
+				'Left Align Image' => '',
+				'Right Align Image' => 'uk-flex-last@s',
+			]
+		],	
+	];
 	
     private static $controller_class = CustomElementController::class;  // allows us to store templates in this module folder
 	

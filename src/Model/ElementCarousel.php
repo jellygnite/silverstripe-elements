@@ -175,4 +175,8 @@ class ElementCarousel extends BaseElement
         return _t(__CLASS__.'.BlockType', 'Carousel');
     }
 
+	public function duplicate($doWrite = true, $relations = null) {
+		$object = parent::duplicate($doWrite, false);
+		return $object;
+	} 
 }

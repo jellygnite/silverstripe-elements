@@ -181,4 +181,8 @@ class ElementPopups extends BaseElement
         return _t(__CLASS__.'.BlockType', 'Popups');
     }
 
+	public function duplicate($doWrite = true, $relations = null) {
+		$object = parent::duplicate($doWrite, false);
+		return $object;
+	} 
 }

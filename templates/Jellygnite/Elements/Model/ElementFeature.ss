@@ -1,6 +1,6 @@
 <div class="uk-container uk-container-center">
 	<div class="uk-child-width-1-2@s uk-text-center" data-uk-grid>
-		<div class="image-holder">
+		<div class="image-holder $StyleByLocation(image)">
 		<img src="$Image.URL" alt="$Image.Title.ATT" />
 		</div>
 		<div class="content-holder p-5">

@@ -179,4 +179,9 @@ class ElementSponsors extends BaseElement
 	public function isCarousel() {
 		return  ($this->Style == 'carousel');
 	}
+
+	public function duplicate($doWrite = true, $relations = null) {
+		$object = parent::duplicate($doWrite, false);
+		return $object;
+	} 
 }
