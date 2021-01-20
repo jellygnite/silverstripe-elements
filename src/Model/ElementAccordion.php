@@ -19,8 +19,9 @@ use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
  *
  * @method \SilverStripe\ORM\ManyManyList Accordion()
  */
-class ElementAccordion extends BaseElement
-{
+class ElementAccordion extends BaseElement {
+	
+	private static $cascade_duplicates = false;	
 	
     /**
      * @var string
@@ -175,8 +176,4 @@ class ElementAccordion extends BaseElement
         return _t(__CLASS__.'.BlockType', 'Accordion');
     }
 
-	public function duplicate($doWrite = true, $relations = null) {
-		$object = parent::duplicate($doWrite, false);
-		return $object;
-	} 
 }

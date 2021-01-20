@@ -19,8 +19,9 @@ use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
  *
  * @method \SilverStripe\ORM\ManyManyList Persons()
  */
-class ElementSponsors extends BaseElement
-{
+class ElementSponsors extends BaseElement {
+	
+	private static $cascade_duplicates = false;	
 	
     /**
      * @var string
@@ -180,8 +181,5 @@ class ElementSponsors extends BaseElement
 		return  ($this->Style == 'carousel');
 	}
 
-	public function duplicate($doWrite = true, $relations = null) {
-		$object = parent::duplicate($doWrite, false);
-		return $object;
-	} 
+
 }

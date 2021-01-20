@@ -20,9 +20,9 @@ use SilverStripe\Dev\Debug;
  *
  * does not need ShowTitle
  */
-class ElementImageGallery extends BaseElement
-{
+class ElementImageGallery extends BaseElement {
 	
+	private static $cascade_duplicates = false;	
 	
     /**
      * @var string
@@ -167,8 +167,5 @@ class ElementImageGallery extends BaseElement
         return _t(__CLASS__.'.BlockType', 'Image Gallery');
     }
 
-	public function duplicate($doWrite = true, $relations = null) {
-		$object = parent::duplicate($doWrite, false);
-		return $object;
-	} 
+
 }

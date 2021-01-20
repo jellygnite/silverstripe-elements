@@ -25,8 +25,9 @@ use SilverStripe\Dev\Debug;
  *
  * does not need ShowTitle
  */
-class ElementSlides extends BaseElement
-{
+class ElementSlides extends BaseElement {
+	
+	private static $cascade_duplicates = false;	
 	
 	
     /**
@@ -189,8 +190,5 @@ class ElementSlides extends BaseElement
         return _t(__CLASS__.'.BlockType', 'Slides');
     }
 
-	public function duplicate($doWrite = true, $relations = null) {
-		$object = parent::duplicate($doWrite, false);
-		return $object;
-	} 
+
 }

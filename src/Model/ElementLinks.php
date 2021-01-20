@@ -24,8 +24,9 @@ use SilverStripe\Dev\Debug;
  *
  * does not need ShowTitle
  */
-class ElementLinks extends BaseElement
-{
+class ElementLinks extends BaseElement {
+	
+	private static $cascade_duplicates = false;	
 	
 	
     /**
@@ -174,8 +175,5 @@ class ElementLinks extends BaseElement
         return _t(__CLASS__.'.BlockType', 'Links');
     }
 
-	public function duplicate($doWrite = true, $relations = null) {
-		$object = parent::duplicate($doWrite, false);
-		return $object;
-	} 
+
 }

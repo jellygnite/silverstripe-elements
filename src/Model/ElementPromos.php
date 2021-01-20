@@ -22,8 +22,9 @@ use SilverStripe\Dev\Debug;
  *
  * @method \SilverStripe\ORM\ManyManyList Promos()
  */
-class ElementPromos extends BaseElement
-{
+class ElementPromos extends BaseElement {
+	
+	private static $cascade_duplicates = false;	
     /**
      * @var string
      */
@@ -181,8 +182,5 @@ class ElementPromos extends BaseElement
         return _t(__CLASS__.'.BlockType', 'Promos');
     }
 	
-	public function duplicate($doWrite = true, $relations = null) {
-		$object = parent::duplicate($doWrite, false);
-		return $object;
-	} 
+
 }

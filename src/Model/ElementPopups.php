@@ -22,8 +22,10 @@ use SilverStripe\Dev\Debug;
  *
  * @method \SilverStripe\ORM\ManyManyList Popups()
  */
-class ElementPopups extends BaseElement
-{
+class ElementPopups extends BaseElement {
+	
+	private static $cascade_duplicates = false;	
+	
     /**
      * @var string
      */
@@ -181,8 +183,5 @@ class ElementPopups extends BaseElement
         return _t(__CLASS__.'.BlockType', 'Popups');
     }
 
-	public function duplicate($doWrite = true, $relations = null) {
-		$object = parent::duplicate($doWrite, false);
-		return $object;
-	} 
+
 }

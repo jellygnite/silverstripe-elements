@@ -19,8 +19,9 @@ use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
  *
  * @method \SilverStripe\ORM\ManyManyList Persons()
  */
-class ElementPersons extends BaseElement
-{
+class ElementPersons extends BaseElement {
+	
+	private static $cascade_duplicates = false;	
 	
     /**
      * @var string
@@ -175,8 +176,5 @@ class ElementPersons extends BaseElement
         return _t(__CLASS__.'.BlockType', 'Persons');
     }
 
-	public function duplicate($doWrite = true, $relations = null) {
-		$object = parent::duplicate($doWrite, false);
-		return $object;
-	} 
+
 }
