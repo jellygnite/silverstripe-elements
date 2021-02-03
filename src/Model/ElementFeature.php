@@ -49,6 +49,7 @@ class ElementFeature extends BaseElement
 				'Image above' => 'uk-flex-first',
 				'Image below' => 'uk-flex-last',
 			],
+		],
 		'ImageAlignment' => [
 			'Title' => 'Image Alignment',
 			'Description' => 'Set the position of the image for device widths 640px and higher.',
