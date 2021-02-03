@@ -81,7 +81,7 @@ class BackgroundExtension extends DataExtension
 		if($this->owner->BackgroundImageID || $this->owner->BackgroundVideoID) {
 			$style .= ' has-bg';
 			if($this->owner->BackgroundImage->IsDark()){
-				$style .= ' invert';
+				$style .= ' bg-dark';
 			}
 		}					
     }

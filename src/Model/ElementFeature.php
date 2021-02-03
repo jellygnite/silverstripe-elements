@@ -39,6 +39,16 @@ class ElementFeature extends BaseElement
 	private static $styles = [];
 
 	private static $extra_styles = [
+		'ImageOrder' => [
+			'Title' => 'Image Stacking',
+			'Description' => 'Set the position of the image for device widths up to 639px.',
+			'Location' => 'image',
+			'After' => 'Image',
+			'Tab' => 'Main',
+			'Styles' => [
+				'Image above' => 'uk-flex-first',
+				'Image below' => 'uk-flex-last',
+			],
 		'ImageAlignment' => [
 			'Title' => 'Image Alignment',
 			'Description' => 'Set the position of the image for device widths 640px and higher.',
@@ -46,7 +56,7 @@ class ElementFeature extends BaseElement
 			'After' => 'Image',
 			'Tab' => 'Main',
 			'Styles' => [
-				'Left Align Image' => '',
+				'Left Align Image' => 'uk-flex-first@s',
 				'Right Align Image' => 'uk-flex-last@s',
 			]
 		],	
