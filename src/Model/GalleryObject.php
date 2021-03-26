@@ -211,7 +211,7 @@ class GalleryObject extends BaseElementObject
 				return 'https://player.vimeo.com/video/'.$this->Code;
 				break;
 			default:
-				return false;
+				return $this->VideoURL;
 		}
 	}
 	
@@ -278,7 +278,7 @@ class GalleryObject extends BaseElementObject
 						return 'video';
 						break;
 					default:
-						return false;
+						return 'video';
 				}
 				break;
 		}

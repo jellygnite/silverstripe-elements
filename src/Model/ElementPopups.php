@@ -46,7 +46,6 @@ class ElementPopups extends BaseElement {
      */
     private static $table_name = 'ElementPopups';
 	
-    private static $controller_class = CustomElementController::class;  // allows us to store templates in this module folder
 	
     private static $controller_template = 'ElementHolder_Popups';
 
@@ -54,6 +53,9 @@ class ElementPopups extends BaseElement {
      * @var array
      */
     private static $styles = [];
+	
+	// allows us to store templates in this module folder
+	private static $controller_class = CustomElementController::class;  
 
     /**
      * @var array

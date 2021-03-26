@@ -37,7 +37,7 @@ class ElementFeature extends BaseElement
     private static $table_name = 'ElementFeature';
 	
 	private static $styles = [];
-
+	
 	private static $extra_styles = [
 		'ImageOrder' => [
 			'Title' => 'Image Stacking',
@@ -63,7 +63,8 @@ class ElementFeature extends BaseElement
 		],	
 	];
 	
-    private static $controller_class = CustomElementController::class;  // allows us to store templates in this module folder
+	// allows us to store templates in this module folder
+	private static $controller_class = CustomElementController::class;
 	
     private static $controller_template = "ElementHolder";
 

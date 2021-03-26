@@ -3,6 +3,7 @@
 namespace Jellygnite\Elements\Model;
 
 use DNADesign\Elemental\Models\BaseElement;
+use Jellygnite\Elements\Controllers\CustomElementController;
 use SilverStripe\Assets\Image;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\ORM\FieldType\DBField;
@@ -48,6 +49,10 @@ class ElementImageGallery extends BaseElement {
      * @var array
      */
     private static $styles = [];
+	
+	// allows us to store templates in this module folder
+	private static $controller_class = CustomElementController::class;  
+
 
     /**
      * @var array

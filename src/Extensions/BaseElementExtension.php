@@ -2,6 +2,8 @@
 
 namespace Jellygnite\Elements\Extensions;
 
+use Exception;
+use SilverStripe\Core\Injector\Injector;
 use SilverStripe\ORM\DataExtension;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Dev\Debug;

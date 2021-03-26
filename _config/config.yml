@@ -10,5 +10,7 @@ DNADesign\Elemental\Models\BaseElement:
 Jellygnite\Elements\Model\BaseElementObject:
   extensions:
     - Jellygnite\ElementalStyle\Extensions\DynamicStyleExtension
+DNADesign\Elemental\Models\ContentElement:
+  controller_class: Jellygnite\Elements\Controllers\CustomElementController
 
 

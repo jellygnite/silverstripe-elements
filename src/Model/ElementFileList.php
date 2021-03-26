@@ -4,6 +4,7 @@ namespace Jellygnite\Elements\Model;
 
 use Colymba\BulkUpload\BulkUploader;
 use DNADesign\Elemental\Models\BaseElement;
+use Jellygnite\Elements\Controllers\CustomElementController;
 use Jellygnite\Elements\Model\FileListObject;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
@@ -41,6 +42,10 @@ class ElementFileList extends BaseElement
      * @var bool
      */
     private static $inline_editable = false;
+
+	
+	// allows us to store templates in this module folder
+	private static $controller_class = CustomElementController::class;  
 
     /**
      * @param bool $includerelations
