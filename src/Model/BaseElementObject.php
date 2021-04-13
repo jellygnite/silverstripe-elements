@@ -198,7 +198,18 @@ class BaseElementObject extends DataObject
         // because $page can be a SiteTree or Controller
         return $page instanceof SiteTree ? $page : null;
     }
-	
+
+  // method that can be overridden by indivudal element objects
+    public function getOwnerElement()
+    {
+        // You can't find the owner element of an object that hasn't been saved yet
+        if (!$this->isInDB()) {
+            return null;
+        }
+
+	    return null;
+    }
+
     public function getLinkURL()
     {
 		if($link = $this->ElementLink){

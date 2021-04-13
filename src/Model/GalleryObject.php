@@ -162,6 +162,16 @@ class GalleryObject extends BaseElementObject
 		return $fields;
     }
 
+    public function getOwnerElement()
+    {
+        // You can't find the owner element of an object that hasn't been saved yet
+        if (!$this->isInDB()) {
+            return null;
+        }
+
+	    return $this->ElementGallery()->First();
+    }
+
     /**
      * @return mixed
      */
