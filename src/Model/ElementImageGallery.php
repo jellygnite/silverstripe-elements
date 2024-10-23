@@ -126,6 +126,7 @@ class ElementImageGallery extends BaseElement {
 					SortableUploadField::create(
 						'Images', $this->fieldLabel('Images')
 					)->setRightTitle('Supports bulk image uploads')
+					->setFolderName('images')
 				);
             }
         });

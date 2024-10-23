@@ -5,7 +5,7 @@
 			<source src="$BackgroundVideo.URL" type="video/mp4">
 		</video>
 	<% else %>
-		<img srcset="$BackgroundImage.ScaleMaxHeight(768).ScaleMaxWidth(508,768).URL 480w,  
+		<img srcset="$BackgroundImage.ScaleMaxHeight(1024).URL 480w,  
 					$BackgroundImage.ScaleMaxWidth(768).URL 768w,
 					$BackgroundImage.ScaleMaxWidth(960).URL 960w,
 					$BackgroundImage.ScaleMaxWidth(1440).URL 1440w,

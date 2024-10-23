@@ -60,7 +60,7 @@ class ElementFeature extends BaseElement
 				'Left Align Image' => 'uk-flex-first@s',
 				'Right Align Image' => 'uk-flex-last@s',
 			]
-		],	
+		]
 	];
 	
 	// allows us to store templates in this module folder

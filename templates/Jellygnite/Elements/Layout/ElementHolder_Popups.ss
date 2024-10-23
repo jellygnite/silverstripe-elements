@@ -1,4 +1,5 @@
-<section class="element<% if $StyleVariant %> $StyleVariant<% end_if %>" id="$Anchor">
+<section class="element<% if $StyleVariant %> $StyleVariant<% end_if %> $StyleByLocation('element.class')" id="$Anchor">
+	<% include Jellygnite/Elements/Background %>
 	$Element
 </section>
 <% with $Element %>
