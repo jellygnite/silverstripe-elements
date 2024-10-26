@@ -156,14 +156,23 @@ class BaseElementObject extends DataObject
                 LinkField::create('ElementLinkID', $this->fieldLabel('ElementLinkID'))
                     ->setDescription(_t(__CLASS__.'.LinkDescription', 'Optional. Add a call to action link.'))
             );
-			$fields->insertBefore($fields->dataFieldByName('SubTitle'),'Content');
-            $fields->insertBefore($fields->dataFieldByName('ElementLinkID'), 'Content');
+			$fields->insertBefore(
+                'Content', 
+                $fields->dataFieldByName('SubTitle')
+            );
+            $fields->insertBefore(
+                'Content', 
+                $fields->dataFieldByName('ElementLinkID')
+            );
 
             $image = $fields->dataFieldByName('Image')
                 ->setDescription(_t(__CLASS__.'.ImageDescription', 'Optional. Display an image.'))
                 ->setFolderName('images/elements')
 				->setAllowedFileCategories('image/supported','image/unsupported');
-            $fields->insertBefore($image, 'Content');
+            $fields->insertBefore(
+                'Content', 
+                $image
+            );
 
             $fields->dataFieldByName('Content')
                 ->setRows(8);
@@ -179,7 +188,10 @@ class BaseElementObject extends DataObject
 
             if ($styles && count($styles) > 0) {
                 $styleDropdown = DropdownField::create('Style', 'Style variation', $styles);
-                $fields->insertBefore($styleDropdown, 'ExtraClass');
+                $fields->insertBefore(
+                    'ExtraClass', 
+                    $styleDropdown
+                );
                 $styleDropdown->setEmptyString('Select a style..');
             } else {
                 $fields->removeByName('Style');

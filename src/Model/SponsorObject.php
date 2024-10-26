@@ -58,7 +58,10 @@ class SponsorObject extends BaseElementObject
             $fields->removeByName('ShowTitle');
             $fields->removeByName('Content');		
 			
-			$fields->insertBefore(TextField::create('Title', 'Title (reference only, never displayed)'),'ElementLinkID');
+			$fields->insertBefore(
+                'ElementLinkID',
+                TextField::create('Title', 'Title (reference only, never displayed)')
+            );
 			
 			
         });

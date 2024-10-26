@@ -8,14 +8,14 @@
     ],
     "license": "BSD-3-Clause",
     "require": {
-        "silverstripe/framework": "^4.0",
-        "silverstripe/admin": "^1.0",
-        "dnadesign/silverstripe-elemental": "^4.0",
-        "unclecheese/display-logic": "^2.0",
-        "jellygnite/silverstripe-elemental-style": "^4.0",
-		"symbiote/silverstripe-gridfieldextensions": "^3.1",
-		"bummzack/sortablefile": "^2.1",
-		"sheadawson/silverstripe-linkable": "^2.0"
+        "silverstripe/framework": "^5.0",
+        "silverstripe/admin": "^2.0",
+        "dnadesign/silverstripe-elemental": "^5.0",
+        "unclecheese/display-logic": "^3.0",
+        "jellygnite/silverstripe-elemental-style": "^5.0",
+		"symbiote/silverstripe-gridfieldextensions": "^4.0",
+		"bummzack/sortablefile": "^2.2",
+		"sheadawson/silverstripe-linkable": "^2.1"
     },
     "suggest": {
         "colymba/gridfield-bulk-editing-tools": "Allows bulk upload of files for FileList"
@@ -30,7 +30,7 @@
             "client/dist"
         ],
         "branch-alias": {
-            "dev-master": "4.0.x-dev"
+            "dev-master": "5.0.x-dev"
         }
     },
     "minimum-stability": "dev",

@@ -93,8 +93,14 @@ class PopupObject extends BaseElementObject
 			$ufImagePopup= $fields->dataFieldByName('ImagePopup')
 				->setFolderName('images/popups'); 
 			
-			$fields->InsertBefore( $ufImageRollover, 'Content');
-			$fields->InsertBefore( $ufImagePopup, 'Content');
+			$fields->InsertBefore(
+                'Content', 
+                $ufImageRollover
+            );
+			$fields->InsertBefore(
+                'Content', 
+                $ufImagePopup
+            );
         });
 		
 

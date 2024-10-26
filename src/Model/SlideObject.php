@@ -66,7 +66,14 @@ class SlideObject extends BaseElementObject
     {
         $this->beforeUpdateCMSFields(function (FieldList $fields) {
             $fields->removeByName('ElementSlides');
-			$fields->insertBefore(DropdownField::create("PanelPosition", "Panel Position", $this->dbObject('PanelPosition')->enumValues() ) , 'Content');
+			$fields->insertBefore(
+                'Content', 
+                DropdownField::create(
+                    "PanelPosition", 
+                    "Panel Position", 
+                    $this->dbObject('PanelPosition')->enumValues() 
+                )
+            );
         });
 
         $fields = parent::getCMSFields();	
