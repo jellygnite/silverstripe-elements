@@ -68,7 +68,7 @@ class SponsorObject extends BaseElementObject
 
         $fields = parent::getCMSFields();
 		$fields->dataFieldByName('Image')
-			->setFolderName('images/logos'); 
+			->setFolderName('images'); 
 		return $fields;
     }
 

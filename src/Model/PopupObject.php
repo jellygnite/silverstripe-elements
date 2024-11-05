@@ -85,13 +85,13 @@ class PopupObject extends BaseElementObject
 			$fields->removeByName('ElementLinkID');
 			
 			$fields->dataFieldByName('Image')
-				->setFolderName('images/popups'); 
+				->setFolderName('images'); 
 				
 			$ufImageRollover = $fields->dataFieldByName('ImageRollover')
-				->setFolderName('images/popups'); 
+				->setFolderName('images'); 
 			
 			$ufImagePopup= $fields->dataFieldByName('ImagePopup')
-				->setFolderName('images/popups'); 
+				->setFolderName('images'); 
 			
 			$fields->InsertBefore(
                 'Content', 

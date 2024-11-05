@@ -63,7 +63,7 @@ class PromoObject extends BaseElementObject
             $fields->removeByName('ElementPromos');
 
             $fields->dataFieldByName('Image')
-                ->setFolderName('images/promos'); 
+                ->setFolderName('images'); 
         });
 
         return parent::getCMSFields();

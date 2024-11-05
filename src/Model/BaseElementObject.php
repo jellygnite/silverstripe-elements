@@ -167,7 +167,7 @@ class BaseElementObject extends DataObject
 
             $image = $fields->dataFieldByName('Image')
                 ->setDescription(_t(__CLASS__.'.ImageDescription', 'Optional. Display an image.'))
-                ->setFolderName('images/elements')
+                ->setFolderName('images')
 				->setAllowedFileCategories('image/supported','image/unsupported');
             $fields->insertBefore(
                 'Content', 
@@ -236,7 +236,7 @@ class BaseElementObject extends DataObject
         $styles = $this->config()->get('styles');
 
         if (isset($styles[$style])) {
-            $style = strtolower($style);
+            $style = strtolower($style ?? '');
         } else {
             $style = '';
         }

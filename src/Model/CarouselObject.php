@@ -57,7 +57,7 @@ class CarouselObject extends BaseElementObject
 
         $fields = parent::getCMSFields();
 		$fields->dataFieldByName('Image')
-			->setFolderName('images/carousel'); 
+			->setFolderName('images'); 
 		return $fields;
     }
 

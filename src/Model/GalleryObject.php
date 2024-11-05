@@ -104,7 +104,7 @@ class GalleryObject extends BaseElementObject
 			$fldVideoImageURL = $fields->dataFieldByName('ImageURL')->setAttribute("readonly",true);
 			$fldVideoMetadata = $fields->dataFieldByName('Metadata')->setAttribute("readonly",true)->setRows(1)->addExtraClass('textfield');
 			$fldImage = $fields->dataFieldByName('Image')
-				->setFolderName('images/gallery')
+				->setFolderName('images')
 				->setDescription(null);
 			
 			$fldHTML5Video = $fields->dataFieldByName('HTML5Video');

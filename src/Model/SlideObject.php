@@ -54,7 +54,7 @@ class SlideObject extends BaseElementObject
 	
         
 	public function PanelPositionCss(){
-		return str_replace(' ','-',strtolower($this->PanelPosition));
+		return str_replace(' ','-',strtolower($this->PanelPosition ?? ''));
 	}
 
     /**
@@ -78,7 +78,7 @@ class SlideObject extends BaseElementObject
 
         $fields = parent::getCMSFields();	
 		$fields->dataFieldByName('Image')
-			->setFolderName('images/slides')
+			->setFolderName('images')
 			->setRightTitle('Recommended upload size is 1920px x 900px.');
 		return $fields;
     }

@@ -57,7 +57,7 @@ class BackgroundExtension extends DataExtension
     public function updateCMSFields(FieldList $fields) 
 	{
 		$fldBackgroundImage = $fields->dataFieldByName('BackgroundImage')
-			->setFolderName('images/background')
+			->setFolderName('images')
 			->setDescription('This will also be used as the poster image if using a video background.');
 		
 		$fldBackgroundVideo = $fields->dataFieldByName('BackgroundVideo');

@@ -93,7 +93,7 @@ class ElementFeature extends BaseElement
                     ->setDescription(_t(__CLASS__.'.LinkDescription', 'Optional. Add a call to action link.'))
             );
 			$fields->dataFieldByName('Image')
-				->setFolderName('images/elements')
+				->setFolderName('images')
 				->setAllowedFileCategories('image/supported','image/unsupported'); 
 			
         });
