@@ -54,7 +54,8 @@ class BaseElementObject extends DataObject
         'SubTitle' => 'Varchar(255)',
         'Content' => 'HTMLText',
         'ExtraClass' => 'Varchar(255)',
-        'Style' => 'Varchar(255)'
+        'Style' => 'Varchar(255)',
+        'ShowButton' => 'Boolean'
     );
 
     /**
@@ -76,6 +77,10 @@ class BaseElementObject extends DataObject
      * @var string
      */
     private static $default_sort = 'Title ASC';
+    
+	private static $defaults = array (
+		'ShowButton' => '0'
+	);
 
     /**
      * @var array
@@ -163,6 +168,11 @@ class BaseElementObject extends DataObject
             $fields->insertBefore(
                 'Content', 
                 $fields->dataFieldByName('ElementLinkID')
+            );
+
+            $fields->insertBefore(
+                'Content', 
+                $fields->dataFieldByName('ShowButton')
             );
 
             $image = $fields->dataFieldByName('Image')

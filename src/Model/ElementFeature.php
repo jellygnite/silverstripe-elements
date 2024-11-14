@@ -92,6 +92,10 @@ class ElementFeature extends BaseElement
                 LinkField::create('ElementLinkID', $this->fieldLabel('ElementLinkID'))
                     ->setDescription(_t(__CLASS__.'.LinkDescription', 'Optional. Add a call to action link.'))
             );
+            
+            $fields->dataFieldByName('Content')
+                ->setRows(6);
+
 			$fields->dataFieldByName('Image')
 				->setFolderName('images')
 				->setAllowedFileCategories('image/supported','image/unsupported'); 
